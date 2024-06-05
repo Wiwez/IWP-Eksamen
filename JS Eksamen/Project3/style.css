@@ -1,0 +1,21 @@
+body{
+    background-image: url(Clueless.png) ;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-position-y: 100px;
+    margin: 0;
+}
+#clock-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#clock{
+    font-family: monospace ;
+    font-size: 6.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}

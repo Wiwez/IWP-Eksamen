@@ -1,0 +1,75 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 90);
+}
+#myH1 {
+    font-size: 4rem ;
+    font-family: Arial, sans-serif;
+    color: hsl(0, 0%, 25)
+}
+#stopwatchContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid;
+    padding: 30px;
+    border-radius: 50px;
+    background-color: white;
+}
+#stopwatchDisplay{
+    font-size: 5rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: hsl(0, 0%, 30%);
+    text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+    margin-bottom: 25px;
+}
+
+#start{
+background-color: greenyellow;
+font-size: 1.5rem;
+font-weight: bold;
+padding: 10px 20px;
+margin: 5px;
+min-width: 125px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+color: white;
+
+}
+#start:hover{
+    background-color: hsl(84, 100%, 39%);
+}
+#stop{
+    background-color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+#stop:hover{
+    background-color: hsl(0, 100%, 40%);
+}
+#reset{
+    background-color: blue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+#reset:hover{
+    background-color: hsl(240, 100%, 40%);
+}

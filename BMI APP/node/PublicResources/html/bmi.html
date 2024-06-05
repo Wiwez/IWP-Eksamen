@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IWP Health App</title>
+    <link rel="stylesheet" type="text/css" href="css/simple.css">
+</head>
+<body>
+
+  <script>
+    const cursor = document.createElement('div');
+    cursor.style.width = '100px';
+    cursor.style.height = '100px';
+    cursor.style.backgroundImage = 'url(\'https://cdn.discordapp.com/attachments/1207758853761138698/1210556866766045224/ezgif-2-93757d6275.gif?ex=65eafdf0&is=65d888f0&hm=713bed66891fb748b347d0a043679050f13836bc0bf8f8d9f48da12ec40bc909&\')';
+    cursor.style.backgroundSize = 'cover';
+    cursor.style.position = 'absolute';
+    cursor.style.pointerEvents = 'none'; // Ensure cursor does not interfere with click events
+
+    document.body.appendChild(cursor);
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+    });
+  </script>
+
+<section> 
+  <h1 id="id1"> IWP BMI-recorder </h1>
+  <form id="bmiForm_id"  action="bmi-records" method="post"> 
+    <fieldset>
+      <legend>Personal information:</legend>
+      <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+      <label for="name_id"> Name</label>
+      <input type="text"  name="userName" id="name_id" value="Mickey" required minlength="1" maxlength="30"> 
+      <label for="height_id"> Height (cm):</label> 
+      <input type="number" name="height" id="height_id" value="" min="1" max="300" required> 
+      <label for="weight_id"> Weight (kg):</label> 
+      <input type="number" name="weight" id="weight_id" value="" min="1" max="300" required>       
+      <label for="age_id"> Age:</label> 
+      <input type="number" name="age" id="age_id" value="" min="1" max="100" required> 
+      
+      <label for="sex_id"> sex:</label> 
+      <select name="sex" id="sex_id">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="indifferent">Other</option>
+      </select>
+
+ 
+  <input type="submit" id="submitBtn_id" value="Record">
+</div>
+ </fieldset> 
+</form>
+</section>
+
+<section> 
+  <h1 id="id2"> IWP BMI-Statistics-tracker</h1>
+  <form id="bmiStausForm_id"  action="bmi-records" method="get"> 
+    <fieldset>
+      <legend>Personal information:</legend>
+      <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+      <label for="tracker_name_id"> Name</label>
+      <input type="text"  name="userName" id="tracker_name_id" value="Mickey" required minlength="1" maxlength="30"> 
+  <input type="submit" id="submitTracker_id" value="Get Stats">
+</div>
+<a href="html/BMIHelp.html">BMI Help</a>
+ </fieldset> 
+</form>
+</section>
+
+
+</body>
+</html>
+

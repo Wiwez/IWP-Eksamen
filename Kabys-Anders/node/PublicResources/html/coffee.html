@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My APP</title>
+    <link rel="stylesheet" type="text/css" href="css/simple.css">
+</head>
+<body>
+  <h1 id="id1"> IWP KABYS (KAffe-Bestillings-sYStem) </h1>
+
+  <section>
+    <form id="coffeeOrderForm_id"  action="order-coffee" method = "post"> <!-- Action/Method is provided for clarity: This app doesn't use browsers form submission, but handled in JS-->
+      <fieldset>
+       <legend>Kafeebestilling:</legend>
+       <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+       <label for="name_id">Name</label>
+       <input type="text" name="name" id="name_id" value="Anders" required minlength="1" maxlength="30">
+       
+       <label for="coffeStrength_id">Vælg Styrke</label>
+       <input type ="range" id="coffeStrength_id" name="strength" min="1" max="10"  required>
+       
+       <label for="nomilk_id">Ingen mælk</label>
+       <input type ="radio" id="nomilk_id" name="milk" value="nomilk" checked required>
+       
+       <label for="oatmilk_id">Havremælk</label>
+       <input type ="radio" id="oatmilk_id" name="milk" value="oatmilk" >
+
+       <label for="cowmilk_id">Sødmælk</label>
+       <input type ="radio" id="cowmilk_id" name="milk" value="cowmilk"  >
+
+       <input type="submit" id="submitOrderBtn_id" value ="Bestil">
+
+
+      </div>
+    </fieldset> 
+    </form>
+    <output id="result_id" style="visibility:hidden">Result </output>
+    </section>
+
+<section>
+<form id="coffeeStatusForm_id"  action="coffee-orders" method="get"> <!-- Action/Method is provided for clarity: This app doesn't use browsers form submission, but handled in JS-->
+  <fieldset>
+   <legend>Kaffe Status:</legend>
+   <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+   <label for="coffeeOrder_id"> Ordre Nummer</label>
+   <input type="number"  name="orderID" id="coffeeOrder_id" placeholder="0" required min="0" step="1"> 
+   
+   <input type="submit" id="submitStatusBtn_id" value="Check">
+   
+
+
+  </div>
+</fieldset> 
+</form>
+<output id="status_id" style="visibility:hidden">Status </output>
+</section>
+
+<script  src="js/coffee-client.js"></script> 
+
+</body>
+</html>
