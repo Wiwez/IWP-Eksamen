@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>My APP</title>
+    <link rel="stylesheet" type="text/css" href="css/simple.css">
+</head>
+<body>
+  <h1 id="id1"> IWP KABYS (KAffe-Bestillings-sYStem) </h1>
+
+
+  
+<section>
+<form id="coffeeOrderForm_id"  action="OrderCoffee" method="post">
+  <fieldset>
+    <legend>Kaffebestilling:</legend>
+    <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+      <label for="nameID"> Navn</label>
+      <input type="text"  name="nameID" id="nameOrder_id" placeholder="Indtast navn"> 
+
+      <label for="coffeeStr"> Vælg Kaffe Styrke</label>
+      <input type="range" min="1" max="10" value="5" class="slider" id="coffeeStr">
+
+      <label for="noMilk">Ingen Mælk</label>
+      <input type="radio" id="noMilk" name="milk" value="noMilk">
+
+      <label for="oatMilk">Havre Mælk</label>
+      <input type="radio" id="oatMilk" name="milk" value="oatMilk">
+
+      <label for="sweetMilk">Sød Mælk</label>
+      <input type="radio" id="sweetMilk" name="milk" value="sweetMilk">
+
+      <input type="submit" id="submitOrderBtn_id" value="Bestil">
+    </div>
+  </fieldset> 
+</form>
+<output id="ordered_id" style="visibility:hidden">Status </output>
+<form id="coffeeStatusForm_id"  action="coffee-orders" method="get"> <!-- Action/Method is provided for clarity: This app doesn't use browsers form submission, but handled in JS-->
+  <fieldset>
+   <legend>Kaffe Status:</legend>
+   <div class="myFormLayout"> <!-- Hmm, fieldset seems not too happy to work with grid layout used for the form??-->
+   <label for="coffeeOrder_id"> Ordre Nummer</label>
+   <input type="number"  name="orderID" id="coffeeOrder_id" placeholder="0" required min="0" step="1"> 
+   
+  <input type="submit" id="submitStatusBtn_id" value="Check">
+  </div>
+</fieldset> 
+</form>
+<output id="status_id" style="visibility:hidden">Status </output>
+</section>
+
+<script  src="js/coffee-client.js"></script> 
+</body>
+</html>
