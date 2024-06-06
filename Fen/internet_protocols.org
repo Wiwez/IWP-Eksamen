@@ -1,0 +1,81 @@
+#+TITLE: Internet Protocols
+ 
+* HTTP
+This section is dedicated to the HTTP protocol and related topics.
+** URLs
+URLs (Uniform Resource Locators) is a way to reference a resouce usually a web adress. The resource can also be things such as websites, video files, pictures, files, or IOT devices. URLs are build up in the following way {http://www.site.com/index.php?page=17#article} where {http} is the protocol, {www.site.com} is the domain, {index.php} is the path, {page=17} is the query string, and {article} is the fragment. URLs can only be sent as ascii which means that some characters and symbols must be converted into an ascii representation. example: {Æsel? ‐> %C3%86sel}.
+
+** Hypertext Transfer Protocol
+HTTP is an application layer protocol designed for web-traffic, it uses a client/server model.
+The client, typically a browser, will usually take the following steps:
+1. Send request (HTTP GET or similar), about a website
+2. Await response
+3. Parse response
+4. Run steps 1-3 for any other required resouce (js document, image, and/or style sheets)
+   
+the server will usually run the following steps:
+1. Await request
+2. Recive HTTP request from client
+3. Handle request, and read requested file.
+4. Send HTTP response containing requested file.
+
+Generally a client will send a http request which is then handled by the server, then the server sends a response which is handled by the client. The server is usually identified with an ip adress or a DNS name, along with a port number (443 for standard https implementations)
+
+** HTTP message structure
+A HTTP message is made of two parts a header and a body, the header contains information about the message such as protocol flags. The body contains the actual data that needs to be transmitted.
+
+* TCP/IP
+The TCP protocol stack is build up of 5 layers which are the following:
+- Application layer
+  - Protocols that support network applications such as FTP, SMTP, HTTP, and DNS.
+- Transport layer
+  - Transfers data from a process on end-system A to end-system B through TCP or UDP
+- Netwok layer
+  - Routing and transfer of packages form source to destination
+- Link layer
+  - Data transfer of direct network neighbors connected via. a single link (ethernet, WIFI, PPP, or SONET) 
+- Physical layer
+  - The actual wire used to transfer the electrical signal that translates to bits.
+
+#+CAPTION: reference for TCP/IP protocol stack
+[[./img/tcpipreference.png]]
+
+The TCP header is built up of the following parts:
+#+CAPTION:TCP header structure
+[[./img/TCPHEADER.png]]
+** TCP sequence numbers
+#+CAPTION: Diagram of TCP connection
+[[./img/tcpsequencenumber.png]]
+
+The ACK number cna be found by taking the sum of the sequence number and the package length, the following sequnece number will then be the ACK number, this cycle continues until the TCP conection is closed.
+#+CAPTION: TCP transmission scenario examples
+[[./img/tcpTransmissionScenarios.png]]
+
+#+CAPTION: TCP transmission example with ACK and SEQ numbers
+[[./img/tcpDiagram2.png]]
+
+* Throughput calculation
+** Transmission delay
+transmission delay is calculated with the following equation:
+\begin{equation}
+d_{trans}=\frac{L}{R} 
+\end{equation}
+Where L is the length of the packet in bits, and R is the transmission rate in bits.
+** Propergation delay
+Propergation delay is calculated with the following equation:
+\begin{equation}
+d_{}=\frac{d}{s}
+\end{equation}
+Where d is the distance of the physical link, and s being the speend of data transfer through the physical link (just barely the speed of light)
+** Traffic intensity
+traffic intensity is calculated with the following equations:
+\begin{equation}
+\frac{L\cdot a}{R}
+\end{equation}
+where L is the length of the package in bits, a being average rate of packages being delivered, and R being the traansmission rate in bits per second.
+** Throughput
+Throughput is determined by the slowest link in a network it can be expressed with the following statement:
+\begin{equation}
+min(R_c,R_s,\frac{R}{n})
+\end{equation}
+n being the number of connected clients, R being the transmission rate of the shared link between server and client, \(R_c\) being the transmission rate of the clients, \(R_s\) being the transmission rate of the server link.
